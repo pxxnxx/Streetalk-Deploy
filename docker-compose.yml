@@ -1,0 +1,10 @@
+version: "3.7"
+services:
+  # 서버 설정
+  backend:
+    image: pxxnxx/streetalk:master
+    container_name: backend
+    hostname: backend
+    network_mode: "host"
+    env_file:
+      - .env
