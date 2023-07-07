@@ -42,3 +42,6 @@ jobs:
           key: ${{ secrets.KEY }}
           script: |
             sh ~/srv/ubuntu/deploy.sh
+            echo "start docker-compose up: ubuntu"
+            sudo docker-compose -f ~/srv/ubuntu/docker-compose.yml pull
+            sudo docker-compose -f ~/srv/ubuntu/docker-compose.yml --env-file ~/srv/ubuntu/.env up --build -d
