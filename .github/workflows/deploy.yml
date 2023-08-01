@@ -44,6 +44,9 @@ jobs:
             sh ~/srv/ubuntu/deploy.sh
             touch ~/srv/ubuntu/.env
             echo "${{ secrets.ENV }}" >> ~/srv/ubuntu/.env
+            echo "clean docker images"
+            sudo docker image prune
+            y
             echo "start docker-compose up: ubuntu"
             sudo docker-compose -f ~/srv/ubuntu/docker-compose.yml pull
             sudo docker-compose -f ~/srv/ubuntu/docker-compose.yml --env-file ~/srv/ubuntu/.env up --build -d
